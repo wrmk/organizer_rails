@@ -4,6 +4,7 @@ class CreateTodos < ActiveRecord::Migration[6.1]
 
       t.string :text
       t.boolean :isCompleted
+      t.references :project, null: false, foreign_key: true
     end
   end
 end
