@@ -11,14 +11,14 @@ class TodosController < ApplicationController
 
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    
     def set_todo
     @project = Project.find(params[:project_id])
     @todo = @project.todos.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
+    
     def todo_params
-      params.require(:todo).permit(:text)
+      params.require(:todo).permit(:isCompleted)
     end  
 end

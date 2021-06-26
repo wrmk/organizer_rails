@@ -1,4 +1,4 @@
 class TodoSerializer < ActiveModel::Serializer
-  attributes :text, :isCompleted
-  belongs_to :projects
+  attributes :id, :text, :isCompleted
+  #belongs_to :project
 end
