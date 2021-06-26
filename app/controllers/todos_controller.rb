@@ -1,10 +1,16 @@
 class TodosController < ApplicationController
-  def show
+  
+  # def show
+  #   set_todo
+  #   render json: @todo
+  # end
+
+  def update
     set_todo
-    render json: @todo
-  end
 
+    @todo.update(article_params)
 
+  end  
 
 
 
