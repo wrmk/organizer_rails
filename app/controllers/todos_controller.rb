@@ -8,7 +8,7 @@ class TodosController < ApplicationController
   def update
     set_todo
 
-    @todo.update(article_params)
+    @todo.update(todo_params)
 
   end  
 
@@ -25,6 +25,6 @@ class TodosController < ApplicationController
 
     
     def todo_params
-      params.require(:todo).permit(:isCompleted)
+      params.permit(:isCompleted)
     end  
 end
