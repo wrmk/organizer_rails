@@ -1,5 +1,6 @@
 class Project < ApplicationRecord
-  validates :title, uniqueness: {message: "that type of todo is already exist"}
+  validates :title, presence: true, uniqueness: {message: "that type of todo is already exist"}
 
   has_many :todos, -> {order('id ASC')}
+  accepts_nested_attributes_for :todos
 end
