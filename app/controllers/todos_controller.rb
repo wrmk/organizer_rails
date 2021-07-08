@@ -16,7 +16,7 @@ class TodosController < ApplicationController
       @project = Project.create(project_params)
       @project.todos.create(todo_params)
     end
-    render json: Project.includes(:todos).where(todos: {text: todo_params[:text]})
+    render json: Project.includes(:todos).where(todos: {text: todo_params[:text]},projects: {title: project_params[:title]})
   end
 
   private
