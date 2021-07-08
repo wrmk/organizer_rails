@@ -19,10 +19,10 @@ class TodosController < ApplicationController
   private
         
     def todo_params
-      params.permit(:text, :isCompleted)
+      params.permit(:text, :isCompleted).each_value{|value| value.try(:strip!)}
     end 
     def project_params
-      params.permit(:title)
+      params.permit(:title).each_value{|value| value.try(:strip!)}
     end 
 
 end
