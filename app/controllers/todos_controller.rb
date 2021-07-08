@@ -9,11 +9,14 @@ class TodosController < ApplicationController
     @project = Project.all
     if @project.where(project_params).exists?
       @project=Project.find_by project_params
-      @project.todos.create(todo_params)
+        if !@project.todos.where(text: todo_params[:text]).exists?
+          @project.todos.create(todo_params)
+        end
     else
       @project = Project.create(project_params)
       @project.todos.create(todo_params)
     end
+    render json: Project.includes(:todos).where(todos: {text: todo_params[:text]})
   end
 
   private
