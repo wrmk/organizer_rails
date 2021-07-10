@@ -25,7 +25,6 @@ class TodosController < ApplicationController
     def answer
       render json: Project.includes(:todos).where(todos: {text: todo_params[:text]},projects: {title: project_params[:title]})
     end
-        
     def todo_params
       params.permit(:text, :isCompleted).each_value{|value| value.try(:strip!)}
     end 
